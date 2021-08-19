@@ -8,7 +8,10 @@ class PythonOrgSearch(unittest.TestCase):
 
 	# initialization of webdriver
 	def setUp(self):
-		self.driver = webdriver.Chrome() #Firefox()
+		chrome_options = webdriver.ChromeOptions()
+		chrome_options.add_argument("--headless")
+		chrome_options.add_argument("--disable-gpu")
+		self.driver = webdriver.Chrome(options=chrome_options) #Firefox()
 
 	# Test case method. It should always start with test_
 	def test_search_in_python_org(self):
