@@ -2,4 +2,3 @@ pytest
 pytest-json-report
 pytest-html
 selenium
-unittest
