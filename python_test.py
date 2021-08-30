@@ -20,19 +20,24 @@ class PythonOrgSearch(unittest.TestCase):
 		driver = self.driver
 		# get python.org using selenium
 		driver.get("http://www.python.org")
-
+		
 		# assertion to confirm if title has python keyword in it
 		self.assertIn("Python", driver.title)
-
+		
+		driver.save_screenshot("report/ss1.png")
+		
 		# locate element using name
 		elem = driver.find_element_by_name("q")
 
 		# send data
 		elem.send_keys("pycon")
-
+		
+		driver.save_screenshot("report/ss2.png")
+		
 		# recieve data
 		elem.send_keys(Keys.RETURN)
 		assert "No results found." not in driver.page_source
+		driver.save_screenshot("report/ss3.png")
 
 	# cleanup method called after every test performed
 	def tearDown(self):
